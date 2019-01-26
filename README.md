@@ -1,68 +1,207 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+Building our own shopping cart in six hours
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+For a better experience listen to this while reading the file.
 
-### `npm run eject`
+<audio src="/home/mahmoud/Music/work_music.mp3" controls></audio>
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ReactJS workshop support file
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+React
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+React is a JavaScript library for building user interfaces, it is used to create single page applications
 
-### Code Splitting
+Single page apps
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+Single page apps/websites run on the client side (the browser) and only communicate with the database when it needs to update. and it only reloads a part of the website.
 
-### Analyzing the Bundle Size
+Lets' take an example, not Facebook.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+when we open 
 
-### Making a Progressive Web App
+create-react-app CLI tool
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+After installing the create-react-app tool globally on our machine through the following line
 
-### Advanced Configuration
+npm install -g create-react-app
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+We can use the create-react-app tool to create a new react project.
 
-### Deployment
+create-creact-app myreactproject
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Building and running an app
 
-### `npm run build` fails to minify
+To build and preview the app we run the following command
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+ npm start
+
+this will build and automatically start the app on your default browser
+
+Components
+
+React is a component oriented library, it allows us to create different components and bring them together to create our single page application.
+
+The state
+
+Every component in react has it's own state, the state is a JavaScript object describes the current condition of the visual elements of the web app (example: how many items in the cart), whenever the state updates in our code react updates the user interface updates to meet the new changes.
+
+state examples:
+
+    state = {
+        cartItems: 5,
+    }
+
+    state = {
+        numberOfLikes: 120
+    }
+
+
+
+The render() method
+
+The render method contains the visual elements of our app.
+
+all the JSX that we write inside the render method, will be rendered on the browser. 
+
+    render() {
+        return (<h2> Hello world </h2>)
+    }
+
+
+
+JSX
+
+JSX looks like HTML but it's not, JSX allows us to put HTML like code inside JavaScript/React files.
+
+JSX is extremely flexible, for example we can do this:
+
+    let button = <button>إضغط على الزر يختفي الأستاذ</button>
+
+
+
+<center>whaaaat ? We can put JSX in variables ?</center>
+
+
+
+className
+
+If we then want to apply bootstrap classes on this button we would add them like this in normal HTML
+
+    <!-- this is normal HTML, NOT JSX -->
+    <button class="btn btn-primary">
+        إضغط على الزر يختفي الأستاذ
+    </button>
+
+and the rendered result would be something like this.
+
+
+
+in JSX we would need to write className="" instead of class="" because class is a reserved word in javascript so we can't use it.
+
+    {/* this is JSX and yes comments are written like this inside JSX */}
+    <button className="btn btn-primary">
+    	إضغط على الزر يختفي الأستاذ
+    </button>
+
+and this would obviously render the same result on the web app.
+
+
+
+htmlFor
+
+There is also the matter of using the word for when using the tag <label>
+
+Normal HTML:
+
+    <label for="username">Enter username</label>
+    <input type="text" id="username" />
+
+JSX:
+
+    <label htmlFor="username">Enter username</label>
+    <input type="text" id="username" />
+
+In JSX we use htmlFor="" instead of for=""
+
+
+
+Creating a component
+
+This is how a simple component that renders <h2> Hello world </h2> when used.
+
+    // import the needed files
+    import React, {Component} from "react"
+    
+    // create the component
+    class MyComponent extends Component() {
+        render() {
+            return (<h2> Hello world </h2>)
+        }
+    }
+    
+    // export the component
+    export default MyComponent;
+
+We haven't used the component yet so let's go ahead and call it in the main file App.jsx
+
+    render() {
+            return (<MyComponent />)
+        }
+
+This will render the message Hello world on the web app.
+
+
+
+
+
+What is EcmaScript
+
+EcmaScript is a scripting languages specifications that JavaScript is built on.
+
+ES6
+
+ES6 is a version of EcmaScript, it was released on 2015.
+it added a lot of new next gen features to JavaScript like
+
+Arrow functions
+
+    const myFun = () => {
+        
+    }
+
+
+
+let
+
+const
+
+why ? Minimize Mutable State we don't risk overwriting the constant
+
+you could help a fellow developer when debugging, he knows that it won't change, it could be you too.
+
+Always use const if you can otherwise use let
+
+React.Fragment
+
+
+
+
+
+   Mahmoud Ghandour at Formalab 
+
+Last updated January 2019
+
+
